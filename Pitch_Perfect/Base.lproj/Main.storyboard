@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Record View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RecordViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,17 +57,17 @@
                         <outlet property="recordButton" destination="PcO-e2-Lh8" id="IiR-EH-hCQ"/>
                         <outlet property="recordedLabel" destination="fH6-Pc-XUX" id="4ee-Kh-hj8"/>
                         <outlet property="stopButton" destination="GqJ-ck-X1K" id="MjB-Ji-kJG"/>
-                        <segue destination="ZkE-16-M62" kind="show" identifier="goToSecondVC" id="iH2-hm-8UH"/>
+                        <segue destination="ZkE-16-M62" kind="show" identifier="goToPlaySoundVC" id="iH2-hm-8UH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="852.17391304347836" y="98.4375"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Play Sound View Controller-->
         <scene sceneID="TMy-Bf-gvQ">
             <objects>
-                <viewController id="ZkE-16-M62" customClass="SecondViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZkE-16-M62" customClass="PlaySoundViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XXB-B2-Io7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

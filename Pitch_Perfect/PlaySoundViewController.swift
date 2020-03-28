@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class SecondViewController: UIViewController {
+class PlaySoundViewController: UIViewController {
 
     @IBOutlet weak var fastButton: UIButton!
     @IBOutlet weak var slowButton: UIButton!
@@ -26,7 +26,7 @@ class SecondViewController: UIViewController {
     var stopTimer: Timer!
     
     enum ButtonType: Int {
-        case slow = 0, fast, chipmunk, vader, echo, reverb
+        case fast = 0, slow, chipmunk, vader, echo, reverb
     }
     
     override func viewDidLoad() {
@@ -34,6 +34,10 @@ class SecondViewController: UIViewController {
         
         setupAudio()
         configureUI(.notPlaying)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        stopAudio()
     }
     
     @IBAction func soundPressed(_ sender: UIButton) {

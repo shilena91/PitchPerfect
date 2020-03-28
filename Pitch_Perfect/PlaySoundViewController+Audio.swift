@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-extension SecondViewController: AVAudioRecorderDelegate {
+extension PlaySoundViewController: AVAudioRecorderDelegate {
     
     struct Alerts {
         static let DismissAlert = "Dismiss"
@@ -167,5 +167,4 @@ extension SecondViewController: AVAudioRecorderDelegate {
         alert.addAction(UIAlertAction(title: Alerts.DismissAlert, style: .default))
         present(alert, animated: true)
     }
-    
 }

@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, AVAudioRecorderDelegate {
+class RecordViewController: UIViewController, AVAudioRecorderDelegate {
 
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
@@ -20,8 +20,8 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI(recording: false)
         
+        configureUI(recording: false)
         recordingSession = AVAudioSession.sharedInstance()
         
         do {
@@ -58,7 +58,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
-            performSegue(withIdentifier: "goToSecondVC", sender: audioRecorder.url)
+            performSegue(withIdentifier: "goToPlaySoundVC", sender: audioRecorder.url)
         }
         else {
             recordedLabel.text = "Record is not successful!"
@@ -66,23 +66,16 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToSecondVC" {
-            let secondVC = segue.destination as? SecondViewController
+        if segue.identifier == "goToPlaySoundVC" {
+            let secondVC = segue.destination as? PlaySoundViewController
             secondVC?.recordedAudioURL = sender as? URL
         }
     }
         
     func configureUI(recording: Bool) {
-        if recording {
-            recordButton.isEnabled = false
-            recordedLabel.text = "Recording!"
-            stopButton.isEnabled = true
-        }
-        else {
-            recordButton.isEnabled = true
-            recordedLabel.text = "Tap to Record!"
-            stopButton.isEnabled = false
-        }
+        recordButton.isEnabled = !recording
+        recordedLabel.text = recording ? "Recording!" : "Tap to record!"
+        stopButton.isEnabled = recording
     }
 }
 
